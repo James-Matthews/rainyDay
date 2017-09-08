@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css"/>
+
+		<title>Rainy Day Web App</title>
+	</head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+	<body>
+
+		<div ng-app="rainyDay" ng-controller="mainCtrl">
+			<div class="container-fluid">
+				<div class="container">
+					<h1>Rainy Day</h1>
+					<hr/>
+					<h5>Get passive weather alerts in the morning before you leave for the day</h5>
+				</div>
+				<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s4 offset-s3">
+								<input placeholder="Phone Number" id="phoneNumber" ng-model="phoneNum" type="text">
+							</div>
+							<button class="btn waves-effect waves-light" ng-click="submit()">Submit</button>
+						</div>
+						<div class="col s1"></div>
+						<div class="col s2" ng-repeat="day in week">
+							<h5>{{day}}</h5>
+							<form>
+								<input ng-model="activeDay[$index]" type="checkbox" id="check{{$index}}" />
+								<label for="check{{$index}}"></label>
+								<input ng-show="activeDay[$index]" type="time" id="timeInput{{$index}}" name="input{{$index}}" ng-model="userTimes[$index]" placeholder="HH:mm:ss" required />
+							</form>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+	</body>
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">How it works</h5>
+					<p class="grey-text text-lighten-4">You will recieve a text at the time you specified every morning to remind you to bring an umbrella if rain is in the forecast</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Modules Used</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="https://www.twilio.com/">Twilio</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://www.npmjs.com/package/express">Express</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/request/request">Request</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://www.npmjs.com/package/mongoose">Mongoose</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://www.npmjs.com/package/node-schedule">Node-Schedule</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				RainyDay
+				<a class="grey-text text-lighten-4 right">Powered by Dark Sky</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<script type="text/javascript" src="scripts/main.js"></script>
+</html>

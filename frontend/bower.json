@@ -1,0 +1,17 @@
+{
+  "name": "pokertable",
+  "description": "pokerTable bower file",
+  "main": "main.js",
+  "authors": [
+    "James-Matthews"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/James-Matthews/pokerTable",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
